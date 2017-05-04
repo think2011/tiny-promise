@@ -108,9 +108,9 @@ class Promise {
             }
         }
 
-        function childExec(value, onResolved, resolve, reject, childPromise) {
+        function childExec(value, handle, resolve, reject, childPromise) {
             try {
-                value = onResolved(value)
+                value = handle(value)
                 solver(childPromise, value, resolve, reject)
             } catch (err) {
                 reject(err)
